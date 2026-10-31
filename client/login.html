@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-page-title="Log in">Guest Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/client/auth.css" />
+    <link rel="stylesheet" href="/client/login.css" />
+    <script defer src="/client/brand.js"></script>
+    <script defer src="/client/auth.js"></script>
+  </head>
+  <body class="auth-page login-page">
+    <main class="auth-card login-card">
+      <aside class="login-art" aria-hidden="true">
+        <span class="login-art-ring login-art-ring-outer"></span>
+        <span class="login-art-ring login-art-ring-inner"></span>
+        <svg class="login-art-flower" viewBox="0 0 240 240" fill="none">
+          <circle cx="120" cy="120" r="13" />
+          <ellipse cx="120" cy="85" rx="19" ry="37" />
+          <ellipse cx="120" cy="155" rx="19" ry="37" />
+          <ellipse cx="85" cy="120" rx="37" ry="19" />
+          <ellipse cx="155" cy="120" rx="37" ry="19" />
+          <ellipse cx="95" cy="95" rx="18" ry="35" transform="rotate(-45 95 95)" />
+          <ellipse cx="145" cy="95" rx="18" ry="35" transform="rotate(45 145 95)" />
+          <ellipse cx="95" cy="145" rx="18" ry="35" transform="rotate(45 95 145)" />
+          <ellipse cx="145" cy="145" rx="18" ry="35" transform="rotate(-45 145 145)" />
+          <circle cx="120" cy="120" r="70" />
+          <circle cx="120" cy="120" r="99" />
+        </svg>
+        <span class="login-art-spark login-art-spark-top"></span>
+        <span class="login-art-spark login-art-spark-bottom"></span>
+      </aside>
+      <section class="login-content">
+        <a class="brand auth-brand" href="/login"><span class="brand-mark" aria-hidden="true" data-brand-mark>G</span><span data-brand>Guest Manager</span></a>
+        <p class="eyebrow">ACCOUNT</p>
+        <h1>Log in</h1>
+        <p class="auth-copy">Enter your email and password.</p>
+        <form class="auth-form" data-auth-form="login" action="/api/auth/login">
+          <label for="email">Email<input id="email" name="email" type="email" autocomplete="email" maxlength="254" required autofocus /></label>
+          <label for="password">Password
+            <span class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" maxlength="72" required /><button class="password-toggle" type="button" data-password-toggle="password" aria-pressed="false">Show</button></span>
+          </label>
+          <button class="primary-button submit" type="submit">Log in</button>
+          <p class="form-message" data-message role="status" aria-live="polite"></p>
+        </form>
+        <nav class="auth-links" aria-label="Account">
+          <a href="/forgot-password">Forgot password?</a>
+          <a href="/signup">Create an account</a>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>

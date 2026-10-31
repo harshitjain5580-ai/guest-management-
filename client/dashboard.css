@@ -1,0 +1,122 @@
+@media (max-width: 900px) {
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    padding: 18px 24px;
+  }
+
+  .sidebar nav,
+  .event-card,
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .sidebar.menu-open nav {
+    display: grid;
+  }
+
+  main {
+    min-width: 0;
+    padding: 25px 20px;
+  }
+
+  .menu-button {
+    display: block;
+    border: 0;
+    background: transparent;
+    font-size: 21px;
+  }
+
+  .hero {
+    padding: 32px 28px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header {
+    margin-bottom: 25px;
+  }
+
+  .header-actions .outline-button {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  .header-actions {
+    gap: 0;
+  }
+
+  .header-actions form .outline-button {
+    display: block;
+  }
+
+  .header-actions .primary-button {
+    font-size: 0;
+    padding: 11px 13px;
+  }
+
+  .header-actions .primary-button:first-letter {
+    font-size: 17px;
+  }
+
+  .hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .hero h2 {
+    font-size: 31px;
+  }
+
+  .hero-note {
+    margin-top: 25px;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .metrics article {
+    padding: 15px;
+    min-height: 128px;
+  }
+
+  .metrics strong {
+    font-size: 31px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .response-card,
+  .reminder-card,
+  .guest-section {
+    padding: 22px;
+  }
+
+  .rsvp-preview {
+    display: block;
+  }
+
+  .rsvp-preview .primary-button {
+    margin-top: 8px;
+  }
+
+  .legend {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
