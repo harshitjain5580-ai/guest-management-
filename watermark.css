@@ -1,0 +1,1 @@
+.site-watermark{position:fixed;right:18px;bottom:12px;z-index:20;color:rgba(37,49,38,.45);font:500 10px/1 "DM Mono",monospace;letter-spacing:.55px;pointer-events:none;user-select:none}@media(max-width:600px){.site-watermark{right:12px;bottom:9px;font-size:9px}}

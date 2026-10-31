@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="watermark.css" />
   </head>
   <body>
     <div class="shell">
@@ -94,6 +95,7 @@
     <dialog id="rsvpDialog"><form method="dialog" id="rsvpForm"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">ARIA &amp; KIRAN INVITE YOU</p><h2>Will you celebrate with us?</h2><p class="rsvp-subtitle">Saturday, 12 December 2026<br />The Rambagh Palace, Jaipur</p><div class="choice-row"><button type="button" class="rsvp-choice selected" data-rsvp="confirmed">✓ Yes, joyfully</button><button type="button" class="rsvp-choice" data-rsvp="declined">Regretfully, no</button></div><div id="partyControl"><p>Number of guests</p><div class="stepper"><button type="button" id="minus">−</button><strong id="partyNumber">1</strong><button type="button" id="plus">+</button></div></div><button value="default" class="primary-button submit">Confirm my response</button></form></dialog>
 
     <div id="toast" role="status" aria-live="polite"></div>
+    <div class="site-watermark" aria-label="Created by Harshit Jain">Harshit Jain</div>
     <script src="app.js"></script>
   </body>
 </html>
