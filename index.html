@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vows and Guests</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="#top" aria-label="Vows and Guests home">
+          <span class="brand-mark">V</span>
+          <span>Vows <i>&amp;</i> Guests</span>
+        </a>
+        <div class="event-card">
+          <span class="eyebrow">CURRENT EVENT</span>
+          <strong>Aria &amp; Kiran</strong>
+          <span>12 Dec 2026 · Jaipur</span>
+        </div>
+        <nav aria-label="Main navigation">
+          <a class="active" href="#dashboard"><span>▦</span> Overview</a>
+          <a href="#guests"><span>♙</span> Guests</a>
+          <a href="#rsvp"><span>✉</span> RSVP page</a>
+          <a href="#reminders"><span>◷</span> Reminders</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <button id="exportButton" class="quiet-button">⇩ Export guest list</button>
+          <p>Made for celebrations<br />that feel personal.</p>
+        </div>
+      </aside>
+
+      <main id="top">
+        <header>
+          <button class="menu-button" aria-label="Open menu">☰</button>
+          <div>
+            <p class="eyebrow">WEDDING DASHBOARD</p>
+            <h1>Good morning, Aria.</h1>
+          </div>
+          <div class="header-actions">
+            <form method="post" action="/logout"><button class="outline-button" type="submit">Log out</button></form>
+            <button id="remindButton" class="outline-button">Send pending reminders</button>
+            <button id="addGuestButton" class="primary-button">+ Add a guest</button>
+          </div>
+        </header>
+
+        <section id="dashboard" class="hero" aria-labelledby="summaryTitle">
+          <div>
+            <p class="eyebrow">THE CELEBRATION IS GETTING CLOSER</p>
+            <h2 id="summaryTitle">A clear headcount makes every detail easier.</h2>
+          </div>
+          <p class="hero-note"><b id="daysLeft">42</b> days to go<br /><span>RSVP closes 20 Nov</span></p>
+        </section>
+
+        <section class="metrics" aria-label="Guest response summary">
+          <article><span class="metric-icon cream">✦</span><p>Total invited</p><strong id="totalInvited">0</strong><small id="householdText">0 households</small></article>
+          <article><span class="metric-icon sage">✓</span><p>Confirmed</p><strong id="confirmedCount">0</strong><small><b id="confirmedHeadcount">0</b> people attending</small></article>
+          <article><span class="metric-icon rose">×</span><p>Not attending</p><strong id="declinedCount">0</strong><small>Wishes sent with love</small></article>
+          <article><span class="metric-icon blue">◌</span><p>Awaiting reply</p><strong id="pendingCount">0</strong><small id="pendingMessage">No follow-up needed</small></article>
+        </section>
+
+        <section class="content-grid">
+          <article class="response-card">
+            <div class="section-heading"><div><p class="eyebrow">RESPONSE PROGRESS</p><h3>Your guest list</h3></div><span id="responseRate">0% replied</span></div>
+            <div class="progress-track"><span id="confirmedBar"></span><i id="declinedBar"></i></div>
+            <div class="legend"><span><i class="dot confirmed"></i> Confirmed</span><span><i class="dot declined"></i> Declined</span><span><i class="dot pending"></i> Awaiting reply</span></div>
+            <div class="plan-block"><div><p>PLAN FOR</p><strong id="planHeadcount">0</strong><span>confirmed guests</span></div><span class="flower">✽</span></div>
+          </article>
+          <article id="reminders" class="reminder-card">
+            <p class="eyebrow">NEXT ACTION</p>
+            <h3 id="reminderTitle">No reminders needed</h3>
+            <p id="reminderCopy">Everyone on your list has responded.</p>
+            <button id="cardRemindButton" class="text-button">Review pending guests <span>→</span></button>
+          </article>
+        </section>
+
+        <section id="guests" class="guest-section" aria-labelledby="guestTitle">
+          <div class="section-heading"><div><p class="eyebrow">GUEST LIST</p><h3 id="guestTitle">Recent responses</h3></div><div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="confirmed">Confirmed</button><button class="filter" data-filter="pending">Pending</button></div></div>
+          <div class="guest-table-wrap"><table><thead><tr><th>Guest</th><th>Party</th><th>Response</th><th>Updated</th></tr></thead><tbody id="guestRows"></tbody></table></div>
+        </section>
+
+        <section id="rsvp" class="rsvp-preview">
+          <div><p class="eyebrow">GUEST EXPERIENCE</p><h3>Share an RSVP page that feels like your day.</h3><p>Your guests choose whether they can join, set their party size, and leave a note. This preview is connected to the guest list above.</p></div>
+          <button id="openRsvpButton" class="primary-button">Preview RSVP page <span>→</span></button>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="guestDialog"><form method="dialog" id="guestForm"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">NEW GUEST</p><h2>Add someone to the celebration</h2><label>Full name<input required id="guestName" placeholder="e.g. Meera Kapoor" /></label><label>Household or group<input id="guestHousehold" placeholder="e.g. Kapoor family" /></label><label>Party size<input required id="guestParty" type="number" min="1" max="12" value="1" /></label><label>Response<select id="guestStatus"><option value="pending">Awaiting reply</option><option value="confirmed">Confirmed</option><option value="declined">Not attending</option></select></label><button value="default" class="primary-button submit">Add to guest list</button></form></dialog>
+
+    <dialog id="rsvpDialog"><form method="dialog" id="rsvpForm"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">ARIA &amp; KIRAN INVITE YOU</p><h2>Will you celebrate with us?</h2><p class="rsvp-subtitle">Saturday, 12 December 2026<br />The Rambagh Palace, Jaipur</p><div class="choice-row"><button type="button" class="rsvp-choice selected" data-rsvp="confirmed">✓ Yes, joyfully</button><button type="button" class="rsvp-choice" data-rsvp="declined">Regretfully, no</button></div><div id="partyControl"><p>Number of guests</p><div class="stepper"><button type="button" id="minus">−</button><strong id="partyNumber">1</strong><button type="button" id="plus">+</button></div></div><button value="default" class="primary-button submit">Confirm my response</button></form></dialog>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
